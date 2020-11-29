@@ -7,10 +7,19 @@
 	.show-profile-box {
 
 		margin: 50px;
+		display: flex;
+		align-items: center;
 
 		span {
 			font-size: 20px;
-			margin-left: 130px;
+			margin-left: 60px;
+		}
+
+		.introduction-box {
+			width: 150px;
+			height: 100px;
+			margin-left: 60px;
+			overflow: scroll;
 		}
 	}
 }
