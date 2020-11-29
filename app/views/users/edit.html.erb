@@ -1,2 +1,21 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<div class="user-edit-box">
+	<h1>プロフィール編集</h1>
+	<div class="user-edit-form-box">
+		<%= form_with model: current_user, url: user_path(current_user), local: true do |f| %>
+			<div class="form-box">
+				<%= f.label :name %>
+				<%= f.text_field :name %>
+			</div>
+			<div class="form-box">
+				<%= f.label :profile_image %>
+				<%= f.attachment_field :profile_image, id: 'profile-image-active-btn', class: 'profile-image-deactive-btn' %>
+				<div onClick="$('#profile-image-active-btn').click()">
+					<%= attachment_image_tag current_user, :profile_image, fallback: 'noimage.png', size: '300x300', id: 'profile-image' %>
+				</div>
+			</div>
+			<div class="form-box">
+				<%= f.submit '変更', class: 'btn btn-info' %>
+			</div>
+		<% end %>
+	</div>
+</div>

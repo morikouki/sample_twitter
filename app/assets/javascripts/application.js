@@ -16,3 +16,22 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require_tree .
+
+$(function() {
+	$(document).on('turbolinks:load', function() {
+
+		$(function(){
+	  		//イベント登録
+	  		$('#profile-image-active-btn').on('change', function (e) {
+				// ここから既存の画像のurlの取得
+	    		var reader = new FileReader();
+	    		reader.onload = function (e) {
+	        		$("#profile-image").attr('src', e.target.result);
+	    		};
+			// ここまで
+				//取得したurlにアップロード画像のurlを挿入
+	        	reader.readAsDataURL(e.target.files[0]);
+	        });
+	    });
+	});
+})
