@@ -2,23 +2,29 @@
 	<h1>プロフィール編集</h1>
 	<div class="user-edit-form-box">
 		<%= form_with model: @user, url: user_path(@user), local: true do |f| %>
-			<div class="form-box">
-				<%= f.label :name %>
-				<%= f.text_field :name %>
-			</div>
-			<div class="form-box">
-				<%= f.label :profile_image %>
-				<%= f.attachment_field :profile_image, id: 'profile-image-active-btn', class: 'profile-image-deactive-btn' %>
-				<div onClick="$('#profile-image-active-btn').click()">
-					<%= attachment_image_tag @user, :profile_image, fallback: 'noimage.png', size: '300x300', id: 'profile-image' %>
+
+			<div class="col-xs-6">
+				<div class="form-box">
+					<%= f.label :profile_image %>
+					<%= f.attachment_field :profile_image, id: 'profile-image-active-btn', class: 'profile-image-deactive-btn' %>
+					<div onClick="$('#profile-image-active-btn').click()">
+						<%= attachment_image_tag @user, :profile_image, fallback: 'noimage.png', size: '300x300', id: 'profile-image' %>
+					</div>
 				</div>
 			</div>
-			<div class="form-box">
-				<%= f.label :introduction, '自己紹介' %>
-				<%= f.text_area :introduction %>
-			</div>
-			<div class="form-box">
-				<%= f.submit '変更', class: 'btn btn-info' %>
+
+			<div class="col-xs-6">
+				<div class="form-box">
+					<%= f.label :name %>
+					<%= f.text_field :name, :style => 'color: black' %>
+				</div>
+				<div class="form-box">
+					<%= f.label :introduction, '自己紹介' %><br>
+					<%= f.text_area :introduction, size: '30x10', :style => 'color: black' %>
+				</div>
+				<div class="form-box">
+					<%= f.submit '変更', class: 'btn btn-info' %>
+				</div>
 			</div>
 		<% end %>
 	</div>
