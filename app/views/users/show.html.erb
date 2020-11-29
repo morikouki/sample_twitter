@@ -1,2 +1,10 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="user-show-box">
+	<h1>マイページ</h1>
+	<div class="row show-profile-box">
+		<div class="col-xs-offset-2">
+			<%= attachment_image_tag current_user, :profile_image, fallback: 'noimage.png', size: '200x200' %>
+			<span><%= current_user.name %></span>
+		</div>
+	</div>
+	<%= link_to 'プロフィール編集', edit_user_path(current_user), class: 'btn btn-success' %>
+</div>
