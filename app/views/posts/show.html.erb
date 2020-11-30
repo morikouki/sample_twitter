@@ -4,5 +4,6 @@
 		<%= attachment_image_tag @post.user, :profile_image, fallback: 'noimage.png', size: '20x20' %>
 		<%= @post.user.name %><br>
 		<span><%= @post.body %></span>
+		<span class="favorite-<%= @post.id %>"><%= render 'favorites/link', post: @post %></span>
 	</div>
 </div>
