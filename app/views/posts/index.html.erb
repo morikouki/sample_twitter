@@ -36,6 +36,19 @@
 							<%= post.body %>
 						</td>
 						<td>
+							<% if post.user != current_user %>
+								<% if post.favorited_by?(current_user) %>
+									<%= link_to post_favorites_path(post), class: 'link-color', method: :delete do %>
+										<i class="fas fa-heart"></i>
+									<% end %>
+								<% else %>
+									<%= link_to post_favorites_path(post), class: 'link-color', method: :post do %>
+										<i class="far fa-heart"></i>
+									<% end %>
+								<% end %>
+							<% end %>
+						</td>
+						<td>
 							<%= link_to 'Show', post_path(post), class: 'link-color' %>
 						</td>
 					</tr>
