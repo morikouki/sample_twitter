@@ -33,5 +33,12 @@ $(function() {
 	        	reader.readAsDataURL(e.target.files[0]);
 	        });
 	    });
+
+
+	    $(function(){
+	    	$('#post-btn').on('click', function(){
+	    		$('#post-form-box').slideToggle();
+	    	});
+	    });
 	});
 })
