@@ -1,0 +1,8 @@
+<div class="post-show-box">
+	<h2>投稿詳細</h2>
+	<div class="post-show-contants">
+		<%= attachment_image_tag @post.user, :profile_image, fallback: 'noimage.png', size: '20x20' %>
+		<%= @post.user.name %><br>
+		<span><%= @post.body %></span>
+	</div>
+</div>
