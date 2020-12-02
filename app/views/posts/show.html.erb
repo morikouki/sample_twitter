@@ -10,7 +10,17 @@
 	<div class="post-comment-form-box">
 		<%= form_with model: @post_comment, url: post_post_comments_path(@post) do |f| %>
 			<%= f.label :comment %><br>
-			<%= f.text_field :comment %>
+			<%= f.text_field :comment, :style => 'color: black;' %>
+			<%= f.submit 'コメントする', class: 'btn btn-info' %>
 		<% end %>
 	</div>
+
+
+	<% @post_comments.each do |post_comment| %>
+		<div class="post-comment-box" style="margin: 10px;">
+			<%= attachment_image_tag post_comment.user, :profile_image, fallback: 'noimage.png', size: '50x50' %>
+			<%= post_comment.user.name %>
+			<%= post_comment.comment %>
+		</div>
+	<% end %>
 </div>
