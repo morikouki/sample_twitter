@@ -1,0 +1,27 @@
+<div class="user-index-box">
+	<h2>User 一覧</h2>
+	<table class="table">
+		<thead>
+			<tr>
+				<th></th>
+				<th>ユーザー名</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @users.each do |user| %>
+				<tr>
+					<td>
+						<%= attachment_image_tag user, :profile_image, fallback: 'noimage.png', size: '50x50' %>
+					</td>
+					<td>
+						<%= user.name %>
+					</td>
+					<td>
+						<%= link_to 'Show', user_path(user), class: 'link-color' %>
+					</td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>
