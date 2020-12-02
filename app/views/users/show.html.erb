@@ -10,8 +10,20 @@
 		<div class="introduction-box">
 			<%= @user.introduction %>
 		</div>
+		フォロワー数：<%= @user.followed_user.count %>
+		フォロー数：<%= @user.follower_user.count %>
 	</div>
 	<% if @user == current_user %>
 		<%= link_to 'プロフィール編集', edit_user_path(@user), class: 'btn btn-success' %>
+	<% else %>
+		<% if current_user.following?(@user) %>
+			<%= link_to user_relationships_path(@user), method: :delete do %>
+				フォロー外す
+			<% end %>
+		<% else %>
+			<%= link_to user_relationships_path(@user), method: :post do %>
+				フォローする
+			<% end %>
+		<% end %>
 	<% end %>
 </div>
