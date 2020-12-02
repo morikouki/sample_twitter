@@ -1,5 +1,9 @@
 <div class="user-show-box">
-	<h1>マイページ</h1>
+	<% if @user == current_user %>
+		<h1>マイページ</h1>
+	<% else %>
+		<h1><%= @user.name %>さんのページ</h1>
+	<% end %>
 	<div class="show-profile-box col-xs-offset-2">
 		<%= attachment_image_tag @user, :profile_image, fallback: 'noimage.png', size: '200x200' %>
 		<span><%= @user.name %></span>
@@ -7,5 +11,7 @@
 			<%= @user.introduction %>
 		</div>
 	</div>
-	<%= link_to 'プロフィール編集', edit_user_path(@user), class: 'btn btn-success' %>
+	<% if @user == current_user %>
+		<%= link_to 'プロフィール編集', edit_user_path(@user), class: 'btn btn-success' %>
+	<% end %>
 </div>
