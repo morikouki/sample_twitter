@@ -6,4 +6,11 @@
 		<span><%= @post.body %></span>
 		<span class="favorite-<%= @post.id %>"><%= render 'favorites/link', post: @post %></span>
 	</div>
+
+	<div class="post-comment-form-box">
+		<%= form_with model: @post_comment, url: post_post_comments_path(@post) do |f| %>
+			<%= f.label :comment %><br>
+			<%= f.text_field :comment %>
+		<% end %>
+	</div>
 </div>
